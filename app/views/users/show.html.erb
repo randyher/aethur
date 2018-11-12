@@ -1,0 +1,7 @@
+<h1><%="Welcome #{@user.username}"%></h1>
+
+<hr>
+<ol>
+    <li><%=link_to "New Post", new_user_blog_path(@user)%></li>
+    <li><%=link_to "New Video", new_user_video_path(@user)%></li>
+</ol>
