@@ -10,20 +10,22 @@ class BlogsController < ApplicationController
 
   def new
       @user = User.find(params[:user_id])
-      @blog = Blog.new
+       @blog = current_user.blogs.build
       @category = Category.all
 
   end
 
   def create
-      @blog = User.find(params[:user_id]).blogs.build(blog_params)
+      @blog = current_user.blogs.build(blog_params)
       @blog.save
-      redirect_to user_blogs_path
+      redirect_to user_blog_path(:user_id,@blog)
   end
 
   def edit
   end
-
+  def list
+      @blogs = Blog.all
+  end
   private
 
   def blog_params
