@@ -1,3 +1,18 @@
-<% @blogs.each do |blog| %>
-<%= blog.title %>
-<% end %>
+<h1>Blogs</h1>
+
+
+
+
+<div class="album text-muted">
+    <div class="container">
+
+      <div class="row">
+          <%@blogs.each do |blog| %>
+        <div class="card">
+          <img src="http://www.woodworkingtalk.com/attachments/f9/60628d1358884055-baby-crib-plans-4b819e57e6fbe_147615n.jpg" alt="a baby crib">
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+    <%end %>
+    </div>
+</div>
+</div>

@@ -1,3 +1,5 @@
+<h1>Videos</h1>
 <%@videos.each do |video| %>
-<%= video.title %>
+<li><%= link_to video.title, user_video_path(:user_id,video)%></li>
+
 <%end %>

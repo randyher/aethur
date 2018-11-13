@@ -1,7 +1,46 @@
-<h1><%="Welcome #{@user.username}"%></h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body color:#8A2BE2;>
+        <hr>
+        <h2>My Videos</h2>
+        <%=link_to "New Video", new_user_video_path(@user)%>
+        <hr>
+        <div class="album text-muted">
+            <div class="container">
 
-<hr>
-<ol>
-    <li><%=link_to "New Post", new_user_blog_path(@user)%></li>
-    <li><%=link_to "New Video", new_user_video_path(@user)%></li>
-</ol>
+            <div class="row">
+                <%@videos.each do |video| %>
+                <div class="card">
+                    <%= link_to video.title, user_video_path(:user_id,video)%>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <%end %>
+            </div>
+        </div>
+        </div>
+        <hr>
+        <h2>My Posts</h2>
+        <%=link_to "New Post", new_user_blog_path(@user)%>
+        <hr>
+        <div class="album text-muted">
+            <div class="container">
+
+            <div class="row">
+                <%@blogs.each do |blog| %>
+                <div class="card">
+                    <%= link_to blog.title, user_blog_path(:user_id,blog)%>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <%end %>
+            </div>
+        </div>
+        </div>
+
+
+    </body>
+</html>
+<h1><%="Welcome #{@user.username}"%></h1>

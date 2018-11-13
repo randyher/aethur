@@ -7,30 +7,38 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="/Users/matthewdizon/desktop/Code/Flatiron/Ruby/Mod-2/HalfTilt/app/assets/stylesheets/stylesheet.css">
   </head>
 
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="/welcomes/home/">HalfTilt</a>
 
-  <form class="form-inline">
-      <% if user_signed_in? %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="/welcomes/home/">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="/videos/list/">Videos</a>
-          <a class="nav-item nav-link" href="/blogs/list/">Blogs</a>
-          <%= link_to "Account", user_path(current_user), class: "nav-item nav-link" %>
-        </div>
-      </div>
+              <% if user_signed_in? %>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                      <a class="nav-item nav-link active" href="/welcomes/home/">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-item nav-link" href="/videos/list/">Videos</a>
+                      <a class="nav-item nav-link" href="/blogs/list/">Posts</a>
+                       <ul class="navbar-nav ml-auto">
+                      <%= link_to "Account", user_path(current_user), class: "nav-item nav-link" %>
+                  </div>
+
+              </div>
+
+
         <a class="btn btn-outline-primary"  <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
+
+    
 
 
 
       <% else %>
+       <ul class="navbar-nav ml-auto">
         <a class="btn btn-outline-primary"  <%= link_to('Sign In',new_user_session_path) %>
 
           <a class="btn btn-outline-success" href="/users/sign_up/" role="button">

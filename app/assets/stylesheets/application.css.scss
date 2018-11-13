@@ -13,4 +13,34 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap"
+@import "bootstrap";
+$font-stack:Helvetica, sans-serif;
+
+$primary-color: #9370DB;
+$jumbotron-color: #F5F5F5;
+
+
+body {
+
+}
+.jumbotron {
+    margin-top: 8%;
+    background-color: $jumbotron-color;
+    opacity: 0.80;
+    width: 80%;
+    margin-left: 8%;
+}
+
+.bg {
+    background: url(https://s3.dexerto.com/thumbnails/_thumbnailLarge/lol-worlds-2018-groups-drawn.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.jumbotron-button-left {
+    margin-left: 34%;
+}
+#button-right {
+    margin-left: 8%;
+}
