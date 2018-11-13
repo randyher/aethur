@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'welcomes/index'
+  get 'welcomes/home', to: 'welcomes#home'
 # resources :videos
 resources :users do
     resources :blogs

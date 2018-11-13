@@ -21,8 +21,7 @@
       <a class="nav-item nav-link" href="/videos/list/">Videos</a>
       <a class="nav-item nav-link" href="/blogs/list/">Blogs</a>
       <a class="nav-item nav-link" href="/teams/list">Teams</a>
-       <a class="nav-item nav-link" href="/users/<%=current_user.id%>">Account</a>
-       <%= link_to "account", user_path(current_user), class: "nav-item nav-link" %>
+      <%= link_to "Account", user_path(current_user), class: "nav-item nav-link" %>
     </div>
   </div>
   <form class="form-inline">
