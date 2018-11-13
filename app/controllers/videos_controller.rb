@@ -2,6 +2,7 @@ class VideosController < ApplicationController
     def index
         @user = User.find(params[:user_id])
         @videos = @user.videos
+
     end
 
     def show
@@ -10,18 +11,21 @@ class VideosController < ApplicationController
 
     def new
         @user = User.find(params[:user_id])
-        @video = Video.new
+        @video = current_user.videos.build
         @category = Category.all
 
     end
 
     def create
-        @video = User.find(params[:user_id]).videos.build(video_params)
+        @video = current_user.videos.build(video_params)
         @video.save
-        redirect_to user_videos_path
+        redirect_to user_video_path(:user_id,@video)
     end
 
     def edit
+    end
+    def list
+        @videos = Video.all
     end
 
     private
