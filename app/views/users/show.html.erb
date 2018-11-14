@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <title></title>
     </head>
-    <body color:#8A2BE2;>
+    <body>
+        <h1><%="Welcome #{current_user.username}"%></h1>
         <hr>
         <h2>My Videos</h2>
         <%=link_to "New Video", new_user_video_path(@user)%>
@@ -43,4 +44,3 @@
 
     </body>
 </html>
-<h1><%="Welcome #{@user.username}"%></h1>
