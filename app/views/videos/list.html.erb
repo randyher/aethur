@@ -1,5 +1,24 @@
-<h1>Videos</h1>
-<%@videos.each do |video| %>
-<li><%= link_to video.title, user_video_path(:user_id,video)%></li>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body class = "user-body">
+        <h1>Video</h1>
+        <div class="album text-muted">
+            <div class="container">
 
-<%end %>
+              <div class="row">
+                  <%@videos.each do |video| %>
+                  <a href = "<%=user_video_path(:user_id,video)%>">
+                <div class="card">
+                 <%= image_tag(video.thumbnail, class: "card-image") %>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </a>
+            <%end %>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

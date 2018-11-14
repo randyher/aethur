@@ -1,18 +1,26 @@
-<h1>Blogs</h1>
 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body class = "user-body">
+        <h1>Blogs</h1>
+        <div class="album text-muted">
+            <div class="container">
 
-
-
-<div class="album text-muted">
-    <div class="container">
-
-      <div class="row">
-          <%@blogs.each do |blog| %>
-        <div class="card">
-          <img src="http://www.woodworkingtalk.com/attachments/f9/60628d1358884055-baby-crib-plans-4b819e57e6fbe_147615n.jpg" alt="a baby crib">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="row">
+                  <%@blogs.each do |blog| %>
+                  <a href = "<%=user_blog_path(:user_id,blog)%>">
+                <div class="card">
+                  <%= image_tag(blog.thumbnail, class: "card-image") %>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </a>
+            <%end %>
+            </div>
         </div>
-    <%end %>
-    </div>
-</div>
-</div>
+        </div>
+    </body>
+</html>

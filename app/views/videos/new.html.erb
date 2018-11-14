@@ -1,23 +1,27 @@
 <h1>Add new video to your profile:</h1>
 <%= form_for([@user, @video]) do |f| %>
 <ul>
-<li>
+<div class="field">
     <%=f.label :title %>
     <%=f.text_field :title %>
-</li>
+</div>
 
-<li>
+<div class="field">
     <%=f.label :vidurl %>
     <%=f.text_area :vidurl %>
-</li>
-<li>
+</div>
+<div class="field">
     <%=f.label :description %>
     <%=f.text_area :description %>
-</li>
-<li>
+</div>
+<div class="field">
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, @category, :id, :name %>
-</li>
+</div>
+<div class="field">
+  <%= f.label :thumbnail %><br />
+  <%= f.file_field :thumbnail %>
+</div>
     <%=f.submit "Submit"%>
 </ul>
 <%end%>

@@ -1,18 +1,22 @@
 <%= form_for([@user, @blog]) do |f| %>
-<ul>
-<li>
+
+<div class="field">
     <%=f.label :title %>
     <%=f.text_field :title %>
-</li>
+</div>
 
-<li>
+<div class="field">
     <%=f.label :content %>
     <%=f.text_area :content %>
-</li>
-<li>
+</div>
+<div class="field">
     <%= f.label :category_id %>
     <%= f.collection_select :category_id, @category, :id, :name %>
-</li>
+</div>
+<div class="field">
+  <%= f.label :thumbnail %><br />
+  <%= f.file_field :thumbnail %>
+</div>
     <%=f.submit "Submit"%>
-</ul>
+
 <%end%>

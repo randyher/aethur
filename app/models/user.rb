@@ -8,4 +8,6 @@ class User < ApplicationRecord
     has_many :categories, through: :blogs
     has_many :categories, through: :videos
     has_one_attached :avatar
+
+
 end
