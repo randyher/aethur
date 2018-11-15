@@ -6,14 +6,7 @@ class UsersController < ApplicationController
 
       end
 
-      def new
-          @user = User.new
-      end
 
-      def create
-          @user = User.new(user_params)
-          @user.saveredirect_to @user
-      end
 
       def add_bio
         @user = current_user
