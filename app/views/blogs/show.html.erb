@@ -8,8 +8,8 @@
     <body class = "user-body">
         <h1> <%= @blog.title %> </h1>
         <div class="show_container">
-            <div class="video-left">
-                <%= image_tag(@blog.thumbnail) %>
+            <div class="image-left-container">
+                <%= image_tag(@blog.thumbnail, class: "image-left") %>
 
             </div>
             <div class="video-right">

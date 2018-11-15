@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -7,16 +6,19 @@
     </head>
     <body class = "user-body">
         <h1>Blogs</h1>
+        <hr class = "list-title">
         <div class="album text-muted">
             <div class="container">
 
               <div class="row">
-                  <%@blogs.each do |blog| %>
+                  <%@reversed_blogs = @blogs.reverse%>
+                  <%@reversed_blogs.each do |blog| %>
                   <a href = "<%=user_blog_path(:user_id,blog)%>">
-                <div class="card">
-                  <%= image_tag(blog.thumbnail, class: "card-image") %>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
+                    <div class="card">
+                        <%= image_tag(blog.thumbnail, class: "card-image") %>
+                        <div><%=blog.title%>.</div>
+                        <p class="card-text"><%=blog.sample_content%>.</p>
+                    </div>
             </a>
             <%end %>
             </div>

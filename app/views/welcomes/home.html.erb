@@ -7,8 +7,8 @@
     <% if !user_signed_in? %>
     <body class = "bg">
         <div class="jumbotron">
-          <h1 class = "welcome-jumbo">Welcome to HalfTilt</h1>
-          <p>Welcome to Twitch. We are a global community of millions who come
+          <h1 class = "welcome-jumbo">Welcome to Aethur</h1>
+          <p>Welcome to Aethur. We are a global community of millions who come
                together each day to create their own entertainment: unique,
                live, unpredictable, never-to-be repeated experiences created by
                the magical interactions of the many. With chat built into every
@@ -23,6 +23,48 @@
         </div>
     </body>
     <% else %>
-    <h1>Hello World</h1>
+
+
+    <body class = "user-body">
+        <h1 class = "list-title-home">Blogs</h1>
+        <div class="album text-muted">
+            <div class="container">
+
+              <div class="row">
+                <%@blogs_reversed = @blogs.reverse.first(6)%>
+                  <%@blogs_reversed.each do |blog| %>
+                  <a href = "<%=user_blog_path(:user_id,blog)%>">
+                <div class="card">
+                  <%= image_tag(blog.thumbnail, class: "card-image") %>
+                  <div><%=blog.title%>.</div>
+                  <p class="card-text"><%=blog.sample_content%>.</p>
+                </div>
+            </a>
+            <%end %>
+            </div>
+        </div>
+        </div>
+
+        <hr class = "style-two">
+        <h1 class = "list-title-home">Video</h1>
+        <div class="album text-muted">
+            <div class="container">
+
+              <div class="row">
+                <% @videos_reversed = @videos.reverse.first(6)%>
+                  <%@videos_reversed.each do |video| %>
+                  <a href = "<%=user_video_path(:user_id,video)%>">
+                <div class="card">
+                 <%= image_tag(video.thumbnail, class: "card-image") %>
+                  <div><%=video.title%></div>
+                  <p class="card-text"><%=video.sample_description%></p>
+                </div>
+            </a>
+            <%end %>
+            </div>
+        </div>
+        </div>
+    </body>
+
     <%end %>
 </html>

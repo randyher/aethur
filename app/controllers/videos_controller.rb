@@ -17,15 +17,21 @@ class VideosController < ApplicationController
     end
 
     def create
-        @video = current_user.videos.build(video_params)
-        @video.save
-        redirect_to user_video_path(:user_id,@video)
-    end
+       @video = current_user.videos.build(video_params)
+       @video.vidurl = Video.turn_to_embed(@video.vidurl)
+       @video.save
+       redirect_to user_video_path(:user_id,@video)
+   end
 
     def edit
     end
     def list
         @videos = Video.all
+    end
+    def destroy
+        @video = Video.find(params[:id])
+        @video.destroy
+        redirect_to user_path(current_user)
     end
 
     private

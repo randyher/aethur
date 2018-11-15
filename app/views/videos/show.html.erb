@@ -7,6 +7,10 @@
     </head>
     <body class = "user-body">
         <h1> <%= @video.title %> </h1>
+        <% if @video.user == current_user  %>
+        <%= link_to 'Edit' %>
+        <%= link_to 'Delete' %>
+        <% end %>
         <div class="show_container">
             <div class="video-left">
                 <iframe width="600" height="400"
@@ -15,7 +19,8 @@
 
             </div>
             <div class="video-right">
-                <p> <%=link_to(@video.user.username,@video.user)%></p>
+                <h1> <%=link_to(@video.user.username,@video.user)%></h1>
+                <h2> Game Category: <%= @video.category.name %>  </h2>
                 <p><%= @video.description %></p>
             </div>
 
