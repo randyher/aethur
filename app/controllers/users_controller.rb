@@ -15,25 +15,19 @@ class UsersController < ApplicationController
           @user.saveredirect_to @user
       end
 
-      def edit
+      def add_bio
         @user = current_user
-        @video = Video.find(params[:id])
-        @category = Category.all
       end
 
       def update
-        @video = Video.find(params[:id])
-        @video.update(video_params)
-        redirect_to user_video_path
-      end
-      
-      def add_bio
-
+        @user = current_user
+        @user.update(user_params)
+        redirect_to @user
       end
 
     private
 
     def user_params
-        params.require(:user).permit(:name, :username, :email, :password)
+        params.require(:user).permit(:name, :username, :email, :password, :bio)
     end
 end

@@ -8,9 +8,10 @@
         <div class="profile-image-container">  <%= image_tag(@user.avatar, class: "profile-image")%>
         </div>
         <h1><%="#{@user.username}"%></h1>
+        <p><%="#{@user.bio}"%></p>
             <div class = "container-body">
                 <%= link_to 'Edit Profile', '/users/edit' %>
-                <%= link_to 'Add Bio', '/users/user_id/add_bio' %>
+                <%= link_to 'Add Bio', '/add_bio' %>
         <hr>
 
         <h2>My Videos</h2>
