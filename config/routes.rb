@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 resources :users do
     resources :blogs
     resources :videos
-    # get '/add-bio' to: 'users#add_bio'
+    get '/add_bio', to: 'users#add_bio'
 end
+
 resources :welcomes
 root :to => 'welcomes#home'
 
