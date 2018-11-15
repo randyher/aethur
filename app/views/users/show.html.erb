@@ -9,6 +9,7 @@
         </div>
         <h1><%="#{@user.username}"%></h1>
             <div class = "container-body">
+                <%= link_to 'Edit Profile', '/users/edit' %>
         <hr>
 
         <h2>My Videos</h2>
@@ -22,9 +23,9 @@
 
 
                                 <div class="card">
-                                    <% if video.user == current_user  %>
+                                    <!-- <% if video.user == current_user  %>
                                     <a href = "google.com"><button class = "close"> </button></a>
-                                    <% end %>
+                                    <% end %> -->
                                     <a href = "<%=user_video_path(:user_id,video)%>">
                                     <%= image_tag(video.thumbnail, class: "card-image") %>
                                     <div><%=video.title%>.</div>
@@ -50,9 +51,9 @@
                         <%@blogs.each do |blog| %>
 
                                 <div class="card">
-                                    <% if blog.user == current_user  %>
+                                    <!-- <% if blog.user == current_user  %>
                                     <a href = "google.com"><button class = "close"> </button></a>
-                                    <% end %>
+                                    <% end %> -->
                                     <a href = "<%=user_blog_path(:user_id,blog)%>">
                                     <%= image_tag(blog.thumbnail, class: "card-image") %>
                                     <p class="card-text"><%=blog.sample_content%>.</p>

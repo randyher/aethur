@@ -26,6 +26,10 @@ class UsersController < ApplicationController
         @video.update(video_params)
         redirect_to user_video_path
       end
+      
+      def add_bio
+
+      end
 
     private
 
