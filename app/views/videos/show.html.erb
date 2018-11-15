@@ -8,8 +8,8 @@
     <body class = "user-body">
         <h1> <%= @video.title %> </h1>
         <% if @video.user == current_user  %>
-        <%= link_to 'Edit' %>
-        <%= link_to 'Delete' %>
+        <%= link_to 'Edit', edit_user_video_path %>
+        <%= link_to 'Delete', user_video_path, method: :delete %>
         <% end %>
         <div class="show_container">
             <div class="video-left">

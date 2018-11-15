@@ -7,6 +7,10 @@
     </head>
     <body class = "user-body">
         <h1> <%= @blog.title %> </h1>
+        <% if @blog.user == current_user  %>
+        <%= link_to 'Edit', edit_user_blog_path %>
+        <%= link_to 'Delete', user_blog_path, method: :delete %>
+        <% end %>
         <div class="show_container">
             <div class="image-left-container">
                 <%= image_tag(@blog.thumbnail, class: "image-left") %>

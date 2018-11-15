@@ -23,8 +23,18 @@ class VideosController < ApplicationController
        redirect_to user_video_path(:user_id,@video)
    end
 
-    def edit
-    end
+   def edit
+     @user = current_user
+     @video = Video.find(params[:id])
+     @category = Category.all
+   end
+
+   def update
+     @video = Video.find(params[:id])
+     @video.update(video_params)
+     redirect_to user_video_path
+   end
+
     def list
         @videos = Video.all
     end
@@ -32,6 +42,12 @@ class VideosController < ApplicationController
         @video = Video.find(params[:id])
         @video.destroy
         redirect_to user_path(current_user)
+    end
+
+    def destroy
+      @video = Video.find(params[:id])
+      @video.destroy
+      redirect_to current_user
     end
 
     private
