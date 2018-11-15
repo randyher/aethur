@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body class = "user-body">
-        <div class="profile-image-container">  <%= image_tag(@user.avatar, class: "profile-image")%>
-        </div>
-        <h1><%="#{@user.username}"%></h1>
-        <p><%="#{@user.bio}"%></p>
-            <div class = "container-body">
-                <%= link_to 'Edit Profile', '/users/edit' %>
-                <%= link_to 'Add Bio', '/add_bio' %>
-        <hr>
+   <head>
+       <meta charset="utf-8">
+       <title></title>
+   </head>
+   <body class = "user-body">
+       <div class="profile-image-container">
+           <% if @user.avatar.attached? %>
+               <%=image_tag(@user.avatar, class: "profile-image") %>
 
-        <h2>My Videos</h2>
-        <%=link_to "New Video", new_user_video_path(@user)%>
-        <hr>
-        <div class="album text-muted">
-            <div class="container">
-                <div class="row">
-                    <div class="scrolling-wrapper-flexbox">
-                        <%@videos.each do |video| %>
+           <%else%>
+               <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "profile-image") %>
+           <%end  %>
 
 
-                                <div class="card">
-                                    <!-- <% if video.user == current_user  %>
-                                    <a href = "google.com"><button class = "close"> </button></a>
-                                    <% end %> -->
-                                    <a href = "<%=user_video_path(:user_id,video)%>">
-                                    <%= image_tag(video.thumbnail, class: "card-image") %>
-                                    <div><%=video.title%>.</div>
-                                    <p class="card-text"><%=video.sample_description%>.</p>
-                                    </a>
-                                </div>
+       </div>
+       <h1><%="#{@user.username}"%></h1>
+       <p><%="#{@user.bio}"%></p>
+           <div class = "container-body">
+               <%= link_to 'Edit Profile', '/users/edit' %>
+               <%= link_to 'Add Bio', '/add_bio' %>
+       <hr>
+
+       <h2>My Videos</h2>
+       <%=link_to "New Video", new_user_video_path(@user)%>
+       <hr>
+       <div class="album text-muted">
+           <div class="container">
+               <div class="row">
+                   <div class="scrolling-wrapper-flexbox">
+                       <%@videos.each do |video| %>
+
+
+                               <div class="card">
+                                   <!-- <% if video.user == current_user  %>
+                                   <a href = "google.com"><button class = "close"> </button></a>
+                                   <% end %> -->
+<a href = "<%=user_video_path(:user_id,video)%>">
+   <% if video.thumbnail.attached? %>
+       <%=image_tag(video.thumbnail, class: "card-image") %>
+   <%else%>
+       <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+   <%end  %>
+<div><%=video.title%>.</div>
+<p class="card-text"><%=video.sample_description%>.</p>
+</a>
+</div>
 
 
 
-                        <%end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <h2>My Posts</h2>
-        <%=link_to "New Post", new_user_blog_path(@user)%>
-        <hr>
-        <div class="album text-muted">
-            <div class="container">
-                <div class="row">
-                    <div class="scrolling-wrapper-flexbox">
-                        <%@blogs.each do |blog| %>
+<%end %>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<h2>My Posts</h2>
+<%=link_to "New Post", new_user_blog_path(@user)%>
+<hr>
+<div class="album text-muted">
+<div class="container">
+<div class="row">
+<div class="scrolling-wrapper-flexbox">
+<%@blogs.each do |blog| %>
 
-                                <div class="card">
-                                    <!-- <% if blog.user == current_user  %>
-                                    <a href = "google.com"><button class = "close"> </button></a>
-                                    <% end %> -->
-                                    <a href = "<%=user_blog_path(:user_id,blog)%>">
-                                    <%= image_tag(blog.thumbnail, class: "card-image") %>
-                                    <p class="card-text"><%=blog.sample_content%>.</p>
-                                </a>
-                            </div>
-                        <%end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+<div class="card">
+<!-- <% if blog.user == current_user  %>
+<a href = "google.com"><button class = "close"> </button></a>
+<% end %> -->
+<a href = "<%=user_blog_path(:user_id,blog)%>">
+   <% if blog.thumbnail.attached? %>
+       <%=image_tag(blog.thumbnail, class: "card-image") %>
+   <%else%>
+       <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+   <%end  %>
+<p class="card-text"><%=blog.sample_content%>.</p>
+</a>
+</div>
+<%end %>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html> 

@@ -35,7 +35,12 @@
                   <%@blogs_reversed.each do |blog| %>
                   <a href = "<%=user_blog_path(:user_id,blog)%>">
                 <div class="card">
-                  <%= image_tag(blog.thumbnail, class: "card-image") %>
+                  <% if blog.thumbnail.attached? %>
+                               <%=image_tag(blog.thumbnail, class: "card-image") %>
+
+                           <%else%>
+                               <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+                           <%end%>
                   <div><%=blog.title%>.</div>
                   <p class="card-text"><%=blog.sample_content%>.</p>
                 </div>
@@ -55,7 +60,12 @@
                   <%@videos_reversed.each do |video| %>
                   <a href = "<%=user_video_path(:user_id,video)%>">
                 <div class="card">
-                 <%= image_tag(video.thumbnail, class: "card-image") %>
+                  <% if video.thumbnail.attached? %>
+                               <%=image_tag(video.thumbnail, class: "card-image") %>
+
+                           <%else%>
+                               <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+                           <%end%>
                   <div><%=video.title%></div>
                   <p class="card-text"><%=video.sample_description%></p>
                 </div>
