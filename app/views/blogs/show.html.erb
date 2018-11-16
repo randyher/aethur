@@ -14,10 +14,10 @@
         <div class="show_container">
             <div class="image-left-container">
               <% if @blog.thumbnail.attached? %>
-                           <%=image_tag(@blog.thumbnail, class: "left-image") %>
+                           <%=image_tag(@blog.thumbnail, class: "image-left") %>
 
                        <%else%>
-                           <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "left-image") %>
+                           <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "image-left") %>
                        <%end%>
 
             </div>
