@@ -24,6 +24,31 @@
     </body>
     <% else %>
     <body class = "user-body">
+        <h1 class = "list-title-home">Latest Videos</h1>
+        <div class="album text-muted">
+            <div class="container">
+
+              <div class="row">
+                <% @videos_reversed = @videos.reverse.first(6)%>
+                  <%@videos_reversed.each do |video| %>
+                  <a href = "<%=user_video_path(:user_id,video)%>">
+                <div class="card">
+                  <% if video.thumbnail.attached? %>
+                               <%=image_tag(video.thumbnail, class: "card-image") %>
+
+                           <%else%>
+                               <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+                           <%end%>
+                  <div><%=video.title%></div>
+                  <p class="card-text"><%=video.user.username%></p>
+                </div>
+            </a>
+            <%end %>
+            </div>
+        </div>
+        </div>
+
+        <hr class = "divider">
         <h1 class = "list-title-home">Latest Posts</h1>
         <div class="album text-muted">
             <div class="container">
@@ -48,30 +73,6 @@
         </div>
         </div>
 
-        <hr class = "divider">
-        <h1 class = "list-title-home">Latest Videos</h1>
-        <div class="album text-muted">
-            <div class="container">
-
-              <div class="row">
-                <% @videos_reversed = @videos.reverse.first(6)%>
-                  <%@videos_reversed.each do |video| %>
-                  <a href = "<%=user_video_path(:user_id,video)%>">
-                <div class="card">
-                  <% if video.thumbnail.attached? %>
-                               <%=image_tag(video.thumbnail, class: "card-image") %>
-
-                           <%else%>
-                               <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
-                           <%end%>
-                  <div><%=video.title%></div>
-                  <p class="card-text"><%=video.user.username%></p>
-                </div>
-            </a>
-            <%end %>
-            </div>
-        </div>
-        </div>
     </body>
 
     <%end %>
