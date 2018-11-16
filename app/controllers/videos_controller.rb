@@ -32,7 +32,7 @@ class VideosController < ApplicationController
    def update
      @video = Video.find(params[:id])
      @video.vidurl = Video.turn_to_embed(@video.vidurl)
-     @video.update(video_params)
+     @video.save
      redirect_to user_video_path
    end
 
