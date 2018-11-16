@@ -23,10 +23,8 @@
         </div>
     </body>
     <% else %>
-
-
     <body class = "user-body">
-        <h1 class = "list-title-home">Blogs</h1>
+        <h1 class = "list-title-home">Latest Posts</h1>
         <div class="album text-muted">
             <div class="container">
 
@@ -42,7 +40,7 @@
                                <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
                            <%end%>
                   <div><%=blog.title%>.</div>
-                  <p class="card-text"><%=blog.sample_content%>.</p>
+                  <p class="card-text"><%=blog.user.username%>.</p>
                 </div>
             </a>
             <%end %>
@@ -50,8 +48,8 @@
         </div>
         </div>
 
-        <hr class = "style-two">
-        <h1 class = "list-title-home">Video</h1>
+        <hr class = "divider">
+        <h1 class = "list-title-home">Latest Videos</h1>
         <div class="album text-muted">
             <div class="container">
 
@@ -67,7 +65,7 @@
                                <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
                            <%end%>
                   <div><%=video.title%></div>
-                  <p class="card-text"><%=video.sample_description%></p>
+                  <p class="card-text"><%=video.user.username%></p>
                 </div>
             </a>
             <%end %>

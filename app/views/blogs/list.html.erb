@@ -5,28 +5,28 @@
         <title></title>
     </head>
     <body class = "user-body">
-        <h1>Blogs</h1>
+        <h1>Posts</h1>
         <hr class = "list-title">
         <div class="album text-muted">
             <div class="container">
 
-              <div class="row">
-                  <%@reversed_blogs = @blogs.reverse%>
-                  <%@reversed_blogs.each do |blog| %>
-                  <a href = "<%=user_blog_path(:user_id,blog)%>">
-                    <div class="card">
-                      <% if blog.thumbnail.attached? %>
-                                   <%=image_tag(blog.thumbnail, class: "card-image") %>
+                <div class="row">
+                  <%@blogs_reversed = @blogs.reverse.first(12)%>
+                    <%@blogs_reversed.each do |blog| %>
+                    <a href = "<%=user_blog_path(:user_id,blog)%>">
+                  <div class="card">
+                    <% if blog.thumbnail.attached? %>
+                                 <%=image_tag(blog.thumbnail, class: "card-image") %>
 
-                               <%else%>
-                                   <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
-                               <%end%>
-                        <div><%=blog.title%>.</div>
-                        <p class="card-text"><%=blog.sample_content%></p>
-                    </div>
-            </a>
-            <%end %>
-            </div>
+                             <%else%>
+                                 <%=image_tag("https://sites.law.lsu.edu/civilian/wp-content/themes/thecivilian/images/slider_no_thumb.gif",class: "card-image") %>
+                             <%end%>
+                    <div><%=blog.title%>.</div>
+                    <p class="card-text"><%=blog.user.username%>.</p>
+                  </div>
+              </a>
+              <%end %>
+              </div>
         </div>
         </div>
     </body>
